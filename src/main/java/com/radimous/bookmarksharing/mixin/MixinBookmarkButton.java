@@ -1,9 +1,9 @@
 package com.radimous.bookmarksharing.mixin;
 
 import com.radimous.bookmarksharing.Bookmarksharing;
-import mezz.jei.common.bookmarks.BookmarkList;
-import mezz.jei.common.gui.overlay.bookmarks.BookmarkButton;
-import mezz.jei.common.input.UserInput;
+import mezz.jei.bookmarks.BookmarkList;
+import mezz.jei.gui.overlay.bookmarks.BookmarkButton;
+import mezz.jei.input.UserInput;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;

@@ -6,10 +6,10 @@ import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.ingredients.ITypedIngredient;
 import mezz.jei.api.runtime.IIngredientManager;
 import mezz.jei.api.runtime.IJeiRuntime;
-import mezz.jei.common.bookmarks.BookmarkList;
-import mezz.jei.common.ingredients.IngredientInfo;
-import mezz.jei.common.ingredients.RegisteredIngredients;
-import mezz.jei.common.ingredients.TypedIngredient;
+import mezz.jei.bookmarks.BookmarkList;
+import mezz.jei.ingredients.IngredientInfo;
+import mezz.jei.ingredients.RegisteredIngredients;
+import mezz.jei.ingredients.TypedIngredient;
 import net.minecraft.client.KeyboardHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import java.util.List;
 import java.util.Optional;
 
-import static mezz.jei.common.plugins.debug.JeiDebugPlugin.jeiRuntime;
+import static mezz.jei.plugins.debug.JeiDebugPlugin.jeiRuntime;
 
 @Mod("bookmarksharing")
 public class Bookmarksharing {
