@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.radimous.bookmarksharing.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "bookmarksharing.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "MixinBookmarkButton",
+    "MixinBookmarkInputHandler"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
