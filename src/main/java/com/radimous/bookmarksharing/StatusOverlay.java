@@ -12,6 +12,7 @@ public class StatusOverlay {
 
     private static Component textToRender;
     private static int renderUntil = 0;
+    private static final int RENDER_DURATION = 60;
 
     public static void renderText(Component text) {
         textToRender = text;
@@ -19,7 +20,7 @@ public class StatusOverlay {
         if (mc.player == null) {
             return;
         }
-        renderUntil = mc.player.tickCount + 60;
+        renderUntil = mc.player.tickCount + RENDER_DURATION;
     }
 
     public static Component getTextToRender() {
@@ -34,6 +35,10 @@ public class StatusOverlay {
         var mc = Minecraft.getInstance();
         if (mc.player == null) {
             return false;
+        }
+        if (renderUntil - mc.player.tickCount > RENDER_DURATION) {
+            // switching worlds
+            renderUntil = 0;
         }
         return mc.player.tickCount < renderUntil;
     }

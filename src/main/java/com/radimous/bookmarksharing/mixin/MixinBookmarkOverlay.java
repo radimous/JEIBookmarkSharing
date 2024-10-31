@@ -1,6 +1,5 @@
 package com.radimous.bookmarksharing.mixin;
 
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.radimous.bookmarksharing.BookmarkImportIcon;
 import com.radimous.bookmarksharing.Bookmarksharing;
@@ -27,6 +26,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
@@ -72,8 +72,8 @@ public abstract class MixinBookmarkOverlay {
         this.bookmarkImportButton.updateBounds(bookmarkImportButtonArea);
     }
 
-    @ModifyReturnValue(method = "createInputHandler", at = @At("RETURN"))
-    public IUserInputHandler createInputHandler(IUserInputHandler original) {
-        return new CombinedInputHandler(original, this.bookmarkImportButton.createInputHandler());
+    @ModifyVariable(method = "createInputHandler", name = "bookmarkButtonInputHandler", at = @At(value = "STORE", ordinal = 0), remap = false)
+    public IUserInputHandler createInputHandler(IUserInputHandler value) {
+        return new CombinedInputHandler(this.bookmarkImportButton.createInputHandler(), value);
     }
 }
