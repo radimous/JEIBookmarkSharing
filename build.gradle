@@ -148,7 +148,7 @@ dependencies {
     implementation fg.deobf("curse.maven:jei-238222:${jei_version}")
 
     // test draggable bookmarks compatibility
-    runtimeOnly fg.deobf("blank:draggablebookmarks:jei10-1.0.1-all")
+    runtimeOnly fg.deobf("curse.maven:draggable-bookmarks-1094441:5864568")
     runtimeOnly fg.deobf("curse.maven:modular-routers-250294:4984984")
 
     runtimeOnly fg.deobf("curse.maven:lazydfu-433518:3209972")
