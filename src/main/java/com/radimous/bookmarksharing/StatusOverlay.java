@@ -45,6 +45,9 @@ public class StatusOverlay {
 
     @SubscribeEvent
     public static void onRenderGuiOverlay(RenderGameOverlayEvent.Post event) {
+        if (event.getType() != RenderGameOverlayEvent.ElementType.ALL) {
+            return;
+        }
         if (!shouldRender()) {
             return;
         }

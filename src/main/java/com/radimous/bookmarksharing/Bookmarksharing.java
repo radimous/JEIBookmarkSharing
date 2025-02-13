@@ -1,7 +1,6 @@
 package com.radimous.bookmarksharing;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.mojang.logging.LogUtils;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.ingredients.ITypedIngredient;
 import mezz.jei.api.runtime.IIngredientManager;
@@ -20,16 +19,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import org.slf4j.Logger;
 
 import java.util.List;
 import java.util.Optional;
 
 import static mezz.jei.common.plugins.debug.JeiDebugPlugin.jeiRuntime;
 
-@Mod("bookmarksharing")
+@Mod(Bookmarksharing.MODID)
 public class Bookmarksharing {
-    public static final Logger LOGGER = LogUtils.getLogger();
+    public static final String MODID = "bookmarksharing";
 
     public Bookmarksharing() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_SPEC);
