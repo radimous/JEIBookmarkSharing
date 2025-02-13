@@ -1,6 +1,6 @@
 package com.radimous.bookmarksharing.mixin;
 
-import com.radimous.bookmarksharing.Bookmarksharing;
+import com.radimous.bookmarksharing.Bookmarks;
 import com.radimous.bookmarksharing.Keybinds;
 import mezz.jei.common.input.IKeyBindings;
 import mezz.jei.common.input.CombinedRecipeFocusSource;
@@ -26,7 +26,7 @@ public abstract class MixinBookmarkInputHandler {
     private void copyToClipboard(Screen screen, UserInput input, IKeyBindings keyBindings, CallbackInfoReturnable<Optional<IUserInputHandler>> cir) {
         if (input.is(Keybinds.copyBookmark)) {
             this.focusSource.getIngredientUnderMouse(input, keyBindings).findFirst().flatMap((clicked) -> {
-                Bookmarksharing.copyItemToClipboard(clicked.getTypedIngredient());
+                Bookmarks.copyItemToClipboard(clicked.getTypedIngredient());
                 return Optional.empty();
             });
 

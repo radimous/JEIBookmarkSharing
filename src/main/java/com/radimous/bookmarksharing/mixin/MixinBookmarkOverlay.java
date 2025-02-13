@@ -2,7 +2,7 @@ package com.radimous.bookmarksharing.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.radimous.bookmarksharing.BookmarkImportIcon;
-import com.radimous.bookmarksharing.Bookmarksharing;
+import com.radimous.bookmarksharing.Bookmarks;
 import mezz.jei.common.bookmarks.BookmarkList;
 import mezz.jei.common.gui.GuiScreenHelper;
 import mezz.jei.common.gui.TooltipRenderer;
@@ -31,7 +31,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -44,7 +43,7 @@ public abstract class MixinBookmarkOverlay {
     private void init(BookmarkList bookmarkList, Textures textures, IngredientGridWithNavigation contents,
                       IClientConfig clientConfig, IWorldConfig worldConfig, GuiScreenHelper guiScreenHelper,
                       IConnectionToServer serverConnection, IKeyBindings keyBindings, CallbackInfo ci) {
-        this.bookmarkImportButton = new GuiIconButton(((BookmarkImportIcon)textures).getBookmarkImportIcon(), b -> Bookmarksharing.pasteBookmark(bookmarkList), textures);
+        this.bookmarkImportButton = new GuiIconButton(((BookmarkImportIcon)textures).getBookmarkImportIcon(), b -> Bookmarks.pasteBookmark(bookmarkList), textures);
     }
 
     @Inject(method = "drawScreen", at = @At("RETURN"))
